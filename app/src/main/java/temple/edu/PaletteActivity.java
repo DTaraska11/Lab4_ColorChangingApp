@@ -17,6 +17,7 @@ public class PaletteActivity extends AppCompatActivity {
     GridView simpleGrid;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getSupportActionBar().setTitle("Palette Activity");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
