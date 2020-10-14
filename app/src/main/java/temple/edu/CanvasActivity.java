@@ -12,20 +12,21 @@ public class CanvasActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        getSupportActionBar().setTitle("Canvas Activity");
+        getSupportActionBar().setTitle(getApplicationContext().getResources().getString(R.string.title3));
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_canvas);
 
         Bundle b = getIntent().getExtras();
-        String value = "White"; // or other values
+        int value = Color.WHITE;; // or other values
         if(b != null)
-            value = b.getString("id");
+            value = b.getInt("id");
 
         LinearLayout currentLayout = findViewById(R.id.Layout);
-
-        currentLayout.setBackgroundColor(Color.parseColor(value));
+        String[] colorLabels = getResources().getStringArray(R.array.colors_array);
+        String[] colorLabels2 = getResources().getStringArray(R.array.colors_array2);
+        currentLayout.setBackgroundColor(Color.parseColor(colorLabels[value]));
         TextView textView = findViewById(R.id.textView);
-        textView.setText(value);
+        textView.setText(colorLabels2[value]);
     }
 
 

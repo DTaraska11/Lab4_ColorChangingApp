@@ -17,12 +17,14 @@ public class ColorAdapter<T> extends BaseAdapter
 {
     private Context context; //context
     private ArrayList<String> items; //data source of the list adapter
+    private ArrayList<String> items2;
     LayoutInflater inflter;
 
     //public constructor
-    public ColorAdapter(Context context, ArrayList<String> items) {
+    public ColorAdapter(Context context, ArrayList<String> items, ArrayList<String> items2) {
         this.context = context;
         this.items = items;
+        this.items2 = items2;
     }
 
     @Override
@@ -51,18 +53,17 @@ public class ColorAdapter<T> extends BaseAdapter
         textview.setHeight(500);
         textview.setGravity(Gravity.CENTER);
         if(position != 0) {
-            textview.setBackgroundColor(Color.parseColor(items.get(position)));
-
+            textview.setBackgroundColor(Color.parseColor(items2.get(position)));
         }
 
-        if(position != 0 && items.get(position).equals("BLACK")){
+        if(position != 0 && items2.get(position).equals((context.getApplicationContext().getResources().getString(R.string.Black)))){
             textview.setTextColor(Color.LTGRAY);
         }
 
         textview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String item = items.get(position);
+                int item = position;
                 Intent x = new Intent(view.getContext(), CanvasActivity.class);
                 x.putExtra("id", item);
                 context.startActivity(x);

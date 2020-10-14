@@ -17,23 +17,32 @@ public class PaletteActivity extends AppCompatActivity {
     GridView simpleGrid;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        getSupportActionBar().setTitle("Palette Activity");
+        getSupportActionBar().setTitle(getApplicationContext().getResources().getString(R.string.title2));
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         ArrayList<String> colors = new ArrayList<>();
-
-        colors.add("WHITE");
-        colors.add("RED");
-        colors.add("BLUE");
-        colors.add("YELLOW");
-        colors.add("GREEN");
-        colors.add("MAGENTA");
-        colors.add("BLACK");
-        colors.add("CYAN");
-        colors.add("GRAY");
+        ArrayList<String> colors2 = new ArrayList<>();
+        colors2.add("WHITE");
+        colors2.add("RED");
+        colors2.add("BLUE");
+        colors2.add("YELLOW");
+        colors2.add("GREEN");
+        colors2.add("MAGENTA");
+        colors2.add("BLACK");
+        colors2.add("CYAN");
+        colors2.add("GRAY");
+        colors.add(getApplicationContext().getResources().getString(R.string.White));
+        colors.add(getApplicationContext().getResources().getString(R.string.Red));
+        colors.add(getApplicationContext().getResources().getString(R.string.Blue));
+        colors.add(getApplicationContext().getResources().getString(R.string.Yellow));
+        colors.add(getApplicationContext().getResources().getString(R.string.Green));
+        colors.add(getApplicationContext().getResources().getString(R.string.Magenta));
+        colors.add(getApplicationContext().getResources().getString(R.string.Black));
+        colors.add(getApplicationContext().getResources().getString(R.string.Cyan));
+        colors.add(getApplicationContext().getResources().getString(R.string.Gray));
         simpleGrid = (GridView)findViewById(R.id.simpleGrid);
-        BaseAdapter adapter = new ColorAdapter(this, colors);
+        BaseAdapter adapter = new ColorAdapter(this, colors, colors2);
         simpleGrid.setAdapter(adapter);
         simpleGrid.setSelection(0);
         simpleGrid.setBackgroundColor(808080);

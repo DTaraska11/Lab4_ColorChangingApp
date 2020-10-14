@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Application de changement de couleur</string>
+    <string name="textview">TextView</string>
+    <string name="textview2">textview2</string>
+    <string name="title2">Activité de la palette</string>
+    <string name="White">BLANCHE</string>
+    <string name="Red">ROUGE</string>
+    <string name="Blue">BLEU</string>
+    <string name="Yellow">JAUNE</string>
+    <string name="Green">VERTE</string>
+    <string name="Magenta">MAGENTA</string>
+    <string name="Black">NOIRE</string>
+    <string name="Cyan">CYAN</string>
+    <string name="Gray">GRISE</string>
+    <string name="title3">Activité de toile</string>
+    <string name="Instructions">Cliquez sur une couleur ci-dessous pour lancer le canevas</string>
+
+    <string-array name="colors_array">
+        <item>WHITE</item>
+        <item>RED</item>
+        <item>BLUE</item>
+        <item>YELLOW</item>
+        <item>GREEN</item>
+        <item>MAGENTA</item>
+        <item>BLACK</item>
+        <item>CYAN</item>
+        <item>GRAY</item>
+
+    </string-array>
+    <string-array name="colors_array2">
+        <item>BLANCHE</item>
+        <item>ROUGE</item>
+        <item>BLEU</item>
+        <item>JAUNE</item>
+        <item>VERTE</item>
+        <item>MAGENTA</item>
+        <item>NOIRE</item>
+        <item>CYAN</item>
+        <item>GRISE</item>
+
+    </string-array>
+
+</resources>
