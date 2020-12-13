@@ -15,6 +15,7 @@
     <string name="title3">Canvas Activity</string>
     <string name="Instructions">“Click a color below to launch the Canvas</string>
 
+
     <string-array name="colors_array">
         <item>WHITE</item>
         <item>RED</item>

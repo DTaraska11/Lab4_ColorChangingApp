@@ -1,9 +1,14 @@
 package temple.edu;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -13,12 +18,26 @@ import android.widget.LinearLayout;
 
 import java.util.ArrayList;
 
-public class PaletteActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements PaletteFragment.OnFragmentInteractionListener, CanvasFragment.OnFragmentInteractionListener, PaletteFragment.OnHeadlineSelectedListener  {
     GridView simpleGrid;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        getSupportActionBar().setTitle(getApplicationContext().getResources().getString(R.string.title2));
+
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+
+        FragmentManager fm = getFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.frameLayout2, new PaletteFragment());
+        ft.commit();
+
+        FragmentManager fm2 = getFragmentManager();
+        FragmentTransaction ft2 = fm.beginTransaction();
+        ft.replace(R.id.frameLayout, new CanvasFragment());
+        ft2.commit();
+        /*getSupportActionBar().setTitle(getApplicationContext().getResources().getString(R.string.title2));
+
         setContentView(R.layout.activity_main);
 
         ArrayList<String> colors = new ArrayList<>();
@@ -64,6 +83,22 @@ public class PaletteActivity extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> adapterView) {
 
             }
-        });
+        });*/
+    }
+    @Override
+    public void onFragmentInteraction(Uri uri){
+        //you can leave it empty
+    }
+
+    @Override
+    public void onArticleSelected(int position) {
+
+    }
+    @Override
+    public void onAttachFragment(Fragment fragment) {
+        if (fragment instanceof PaletteFragment) {
+            PaletteFragment headlinesFragment = (PaletteFragment) fragment;
+            headlinesFragment.setOnHeadlineSelectedListener(this);
+        }
     }
 }
